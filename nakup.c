@@ -1,32 +1,45 @@
 #include <stdio.h>
 
-int main() {
-    char name1[30], name2[30], name3[30];
-    float price1, price2, price3;
-    int pieces1, pieces2, pieces3;
+int main(void) {
+    int amount;
+    int price, pieces;
+    int total = 0;
+    char name[50];
 
-    printf("Product 1: ");
-    scanf("%s %f %d", name1, &price1, &pieces1);
+    printf("How many products? ");
+    scanf("%d", &amount);
 
-    printf("Product 2: ");
-    scanf("%s %f %d", name2, &price2, &pieces2);
+    printf("\n--- Enter your products ---\n");
 
-    printf("Product 3: ");
-    scanf("%s %f %d", name3, &price3, &pieces3);
+    for (int i = 0; i < amount; i++) {
+        printf("\nProduct %d\n", i + 1);
 
-    float total = price1 * pieces1 + price2 * pieces2 + price3 * pieces3;
+        printf("Name: ");
+        scanf("%s", name);
 
-    printf("\n%s: %.2f EUR x %d\n", name1, price1, pieces1);
-    printf("%s: %.2f EUR x %d\n", name2, price2, pieces2);
-    printf("%s: %.2f EUR x %d\n", name3, price3, pieces3);
-    printf("Total: %.2f EUR\n", total);
+        printf("Price: ");
+        scanf("%d", &price);
 
+        printf("Pieces: ");
+        scanf("%d", &pieces);
 
+        total += price * pieces;
+    }
 
-if (total > 50) {
-    float finalPrice = total * 0.90;
-    printf("Price after 10%% discount: %.2f EUR\n", finalPrice);
-}
+    printf("\n\n========== RECEIPT ==========\n");
+
+    printf("Total: %d EUR\n", total);
+
+    if (total > 50) {
+        float finalPrice = total * 0.90;
+
+        printf("Discount: 10%%\n");
+        printf("Final price: %.2f EUR\n", finalPrice);
+    } else {
+        printf("Final price: %d EUR\n", total);
+    }
+
+    printf("=============================\n");
 
     return 0;
 }
