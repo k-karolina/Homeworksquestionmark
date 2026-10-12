@@ -6,7 +6,7 @@ int main(void) {
     int total = 0;
     char name[50];
 
-    printf("How many products? ");
+    printf("How many products?s");
     scanf("%d", &amount);
 
     printf("\n--- Enter your products ---\n");
@@ -26,7 +26,7 @@ int main(void) {
         total += price * pieces;
     }
 
-    printf("\n\n========== RECEIPT ==========\n");
+    printf("\n\n========== PRICE ==========\n");
 
     printf("Total: %d EUR\n", total);
 
